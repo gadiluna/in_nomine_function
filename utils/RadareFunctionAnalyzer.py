@@ -91,43 +91,21 @@ class RadareFunctionAnalyzer:
         instruction['operands'] = operands
         return instruction
 
-    def function_to_inst(self, functions_dict, my_function, depth):
+    def function_to_inst(self, my_function):
         instructions = []
-        asm = ""
-
-        if self.use_symbol:
-            s = my_function['vaddr']
-        else:
-            s = my_function['offset']
-        calls = RadareFunctionAnalyzer.get_callref(my_function, depth)
+        s = my_function['vaddr'] if self.use_symbol else my_function['offset']
         self.r2.cmd('s ' + str(s))
 
-        if self.use_symbol:
-            end_address = s + my_function["size"]
-        else:
-            end_address = s + my_function["realsz"]
+        end_address = s + my_function["size"] if self.use_symbol else s + my_function["realsz"]
 
         while s < end_address:
             instruction = self.get_instruction()
-            asm += instruction["bytes"]
-            if self.arch == 'x86':
-                filtered_instruction = "X_" + RadareFunctionAnalyzer.filter_memory_references(instruction)
-            elif self.arch == 'ARM':
-                filtered_instruction = "A_" + RadareFunctionAnalyzer.filter_memory_references(instruction)
-
+            filtered_instruction = "X_" + RadareFunctionAnalyzer.filter_memory_references(instruction)
             instructions.append(filtered_instruction)
-
-            if s in calls and depth > 0:
-                if calls[s] in functions_dict:
-                    ii, aa = self.function_to_inst(functions_dict, functions_dict[calls[s]], depth-1)
-                    instructions.extend(ii)
-                    asm += aa
-                    self.r2.cmd("s " + str(s))
-
             self.r2.cmd("so 1")
             s = int(self.r2.cmd("s"), 16)
 
-        return instructions, asm
+        return instructions
 
     def get_arch(self):
         try:
@@ -159,32 +137,15 @@ class RadareFunctionAnalyzer:
         return fcn_symb
 
     def analyze(self):
-        if self.use_symbol:
-            function_list = self.find_functions_by_symbols()
-        else:
-            function_list = self.find_functions()
-
-        functions_dict = {}
-        if self.top_depth > 0:
-            for my_function in function_list:
-                if self.use_symbol:
-                    functions_dict[my_function['vaddr']] = my_function
-                else:
-                    functions_dict[my_function['offset']] = my_function
-
+        function_list = self.find_functions_by_symbols() if self.use_symbol else self.find_functions()
         result = {}
         for my_function in function_list:
-            if self.use_symbol:
-                address = my_function['vaddr']
-            else:
-                address = my_function['offset']
-
+            address = my_function['vaddr'] if self.use_symbol else  my_function['offset']
             try:
-                instructions, asm = self.function_to_inst(functions_dict, my_function, self.top_depth)
-                result[my_function['name']] = {'filtered_instructions': instructions, "asm": asm, "address": address}
+                instructions = self.function_to_inst(my_function)
+                result[my_function['name']] = {'filtered_instructions': instructions, "address": address}
             except:
                 print("Error in functions: {} from {}".format(my_function['name'], self.filename))
-                pass
         return result
 
     def close(self):
