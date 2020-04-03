@@ -8,17 +8,14 @@ Models and code for the paper:
 
 If you are using this code please cite:
 
+```json
 @article{artuso2019nomine,
-
   title={In Nomine Function: Naming Functions in Stripped Binaries with Neural Networks},
-  
   author={Artuso, Fiorella and Di Luna, Giuseppe Antonio and Massarelli, Luca and Querzoni, Leonardo},
-  
   journal={arXiv},
-  
   year={2019}
 }
-
+```
 
 ## Quickstart
 
