@@ -77,7 +77,7 @@ and *data/gonnacry.meta* files.
 Of course, you can replace gonnacry binary with any unix X86 executable of your choice.
 
 ## Reproducing paper results
-We are committed to permit an easy reproduction of research result. We hope that the information below will permit to 
+We are committed to permit an easy reproduction of research results. We hope that the information below will permit to 
 anyone to reproduce an easy reproduction of the results in our research paper.
 
 ### Downloading ubuntu dataset
