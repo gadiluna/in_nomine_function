@@ -44,7 +44,7 @@ class Downloader:
         self.url_transfomer_pt_model = "https://drive.google.com/file/d/19-CD2wGk9hqaowJ8bEQ97t2linaPHUAx/view?usp=sharing"
         self.url_s2s_pt_model = "https://drive.google.com/file/d/1sV7zMPlJdBEHPUwZQWapRZNxCv7MofLS/view?usp=sharing"
         self.url_ubuntu_test_data = "https://drive.google.com/file/d/1QrP80FmkGgQ8eSjlb3n_2JWSEpR_3JfZ/view?usp=sharing"
-        self.url_ubuntu_all_data = "https://drive.google.com/file/d/1LeDA8Naw5SxKWyjX33lNQOpzIhjH2WDz/view?usp=sharing"
+        self.url_ubuntu_all_data = "https://drive.google.com/file/d/18I53eq-FeYzRB5WWG9eH8Gk_PneJb6ZD/view?usp=sharing"
 
         self.base_path = "data"
         self.path_transformer_pt = os.path.join(self.base_path, "models")
@@ -118,7 +118,7 @@ class Downloader:
             print("Downloading all data.... in the folder data/")
             if not os.path.exists(self.path_ubuntu_all_data):
                 os.makedirs(self.path_ubuntu_all_data)
-            Downloader.download_file(self.path_ubuntu_all_data, os.path.join(self.path_ubuntu_all_data, \
+            Downloader.download_file(self.url_ubuntu_all_data, os.path.join(self.path_ubuntu_all_data, \
                                                                                 self.path_ubuntu_all_data_compress_name))
 
             print("Decompressing all ubuntu dataset and placing in" + str(self.path_ubuntu_all_data))

@@ -88,7 +88,7 @@ If you want to download the whole ubuntu dataset described in the paper, you can
 python downloader.py --all_data
 ```
 
-You can also download only the test set of the ubuntu dataset:
+If you don't need the whole dataset, you can download only the test set:
 ```shell script
 python downloader.py --test_data
 ```
@@ -108,6 +108,31 @@ You can also predict names using our pretrained seq2seq model. To download it:
 ```shell script
 python downloader.py --seq2seq_pt
 ```
+
+### Training a model from scratch
+
+You can train your model from scratch. First, download the whole ubuntu dataset as explained above.
+
+Once you have downloaded the dataset you need to preprocess it:
+```shell script
+./preprocess.sh
+```
+This script assume the dataset is in the default folder *data/ubuntu_all_data/*, modify it according to your local setup.
+The preprocessing will create binary data file into the folder *data/preprocessed_ubuntu_dataset*.
+
+Finally, you can start the training. 
+
+To train transformer model:
+```shell script
+python OpenNMT-py/train.py --config model_configs/config_transformer.yaml
+```
+To train seq2seq model:
+```shell script
+python OpenNMT-py/train.py --config model_configs/config_seq2seq.yaml
+```
+
+
+
 ## Acknowledgements
 
 In our code we use godown to download data from Google drive. We thank circulosmeos, the creator of godown.
