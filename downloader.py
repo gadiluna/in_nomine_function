@@ -91,23 +91,13 @@ class Downloader:
             Downloader.decompress_file(os.path.join(self.path_transformer_pt, self.path_transformer_pt_compress_name), \
                                        self.path_transformer_pt)
 
-        if self.download_transfomer:
-            print("Downloading transformer_pt model.... in the folder data/models/")
-            if not os.path.exists(self.path_transformer_pt):
-                os.makedirs(self.path_transformer_pt)
-            Downloader.download_file(self.url_transfomer_pt_model, os.path.join(self.path_transformer_pt, \
-                                                                                self.path_transformer_pt_compress_name))
-
-            print("Decompressing transformer_pt model and placing in" + str(self.path_transformer_pt))
-            Downloader.decompress_file(os.path.join(self.path_transformer_pt, self.path_transformer_pt_compress_name), \
-                                       self.path_transformer_pt)
 
         if self.download_seqseq:
             print("Downloading seq2seq_pt model.... in the folder data/models/")
             if not os.path.exists(self.path_s2s_pt):
                 os.makedirs(self.path_s2s_pt)
             Downloader.download_file(self.url_transfomer_pt_model, os.path.join(self.path_s2s_pt, \
-                                                                                self.path_transformer_pt_compress_name))
+                                                                                self.path_s2s_pt_compress_name))
 
             print("Decompressing seq2seq_pt model and placing in" + str(self.path_s2s_pt))
             Downloader.decompress_file(os.path.join(self.path_s2s_pt, self.path_s2s_pt_compress_name), \
@@ -117,7 +107,7 @@ class Downloader:
             print("Downloading test data.... in the folder data/")
             if not os.path.exists(self.path_ubuntu_test_data):
                 os.makedirs(self.path_ubuntu_test_data)
-            Downloader.download_file(self.path_ubuntu_test_data, os.path.join(self.path_ubuntu_test_data, \
+            Downloader.download_file(self.url_ubuntu_test_data, os.path.join(self.path_ubuntu_test_data, \
                                                                                 self.path_ubuntu_test_data_compress_name))
 
             print("Decompressing ubuntu test dataset and placing in" + str(self.path_ubuntu_test_data))
