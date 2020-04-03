@@ -49,7 +49,7 @@ This will download the pretrained transformer model described in the paper in th
 
 ---
 
-### Disassemble the executable to analise
+### Disassemble the program and dump the assembly code
 
 Then, you need to dump the assembly code for unnamed funtions in your stripped binary:
 ```shell script
