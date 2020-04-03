@@ -7,10 +7,15 @@ Models and code for the paper:
 **TL;DR**: We used a transformer model to predict function name in a stripped binary.
 
 If you are using this code please cite:
+
 @article{artuso2019nomine,
+
   title={In Nomine Function: Naming Functions in Stripped Binaries with Neural Networks},
+  
   author={Artuso, Fiorella and Di Luna, Giuseppe Antonio and Massarelli, Luca and Querzoni, Leonardo},
+  
   journal={arXiv},
+  
   year={2019}
 }
 
