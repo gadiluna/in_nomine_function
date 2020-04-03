@@ -2,7 +2,7 @@
 
 Models and code for the paper: 
 
-**In Nomine Function: Naming Functions in Stripped Binaries with Neural Networks** [PDF](https://arxiv.org/pdf/1912.07946)
+**In Nomine Function: Naming Functions in Stripped Binaries with Neural Networks**  [[PDF]](https://arxiv.org/pdf/1912.07946)
 
 **TL;DR**: We used a transformer model to predict function name in a stripped binary.
 
