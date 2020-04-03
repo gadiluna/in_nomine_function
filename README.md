@@ -22,7 +22,7 @@ Using our model to predict names for a stripped binary is straightforward.
 Here we'll show how to predict function names for a given binary.
 In this example we will use the same gonnacry sample we used in our paper.
 
-*Requirements*: You need radare2 installed on your machine. To install it look at https://github.com/radareorg/radare2.
+*Requirements*: To predict names for your own binary you need radare2 installed on your machine. To install it take a look at https://github.com/radareorg/radare2.
 
 ---
 
