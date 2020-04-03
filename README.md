@@ -18,6 +18,7 @@ If you are using this code please cite:
 ```
 
 ## Quickstart
+Using our model to predict names for a stripped binary is straightforward.
 Here we'll show how to predict function names for a given binary.
 In this example we will use the same gonnacry sample we used in our paper.
 
@@ -25,7 +26,7 @@ In this example we will use the same gonnacry sample we used in our paper.
 
 ---
 
-Using our model to predict names for a stripped binary is straightforward.
+### Clone this repo and install dependencies
 
 First of all clone this repository:
 ```shell script
@@ -38,6 +39,8 @@ pip install -r requirements.txt
 ```
 ---
 
+### Download trained model
+
 Now you need to download the trained model. To download the transformer_pt model:
 ```shell script
 python downloader.py --transformer_pt
@@ -45,6 +48,8 @@ python downloader.py --transformer_pt
 This will download the pretrained transformer model described in the paper in the folder *data/model/* .
 
 ---
+
+### Disassemble the executable to analise
 
 Then, you need to dump the assembly code for unnamed funtions in your stripped binary:
 ```shell script
@@ -56,6 +61,8 @@ This will create two files: *data/gonnacry.asm* where each line correspond to th
 script to dump all functions in the binary, also the ones that are referenced by a symbol.
 
 ---
+
+### Predict!
 
 Finally, launch the predictions:
 ```shell script
