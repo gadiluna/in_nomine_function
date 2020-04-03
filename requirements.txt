@@ -1,1 +1,3 @@
+r2pipe
 torch
+numpy

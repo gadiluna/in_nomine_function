@@ -1,6 +1,5 @@
 import argparse
 from utils.RadareFunctionAnalyzer import RadareFunctionAnalyzer
-from utils.capstone_disassembler import disassemble
 
 
 def get_functions_data(input_executable, symbolic):
@@ -10,9 +9,9 @@ def get_functions_data(input_executable, symbolic):
     instructions = []
     addresses = []
     for function in functions.keys():
-        if symbolic or function.startswith("fcn."):
+        if symbolic or function.startswith("fcn.") or function.startswith("sub."):
             addresses.append(str(functions[function]["address"])+","+str(function))
-            instructions.append(disassemble(functions[function]["asm"], analyzer.arch, analyzer.bits))
+            instructions.append(functions[function]["filtered_instructions"])
     return instructions, addresses
 
 

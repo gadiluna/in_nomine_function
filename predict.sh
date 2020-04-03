@@ -6,15 +6,15 @@ MODEL=$3       # Path to the trained model
 REFERENCE=$3   # Reference file to compute precision and recall score
 
 # For further argumnets for translation please look at: https://opennmt.net/OpenNMT-py/options/translate.html
-python translate.py --model $MODEL \
+# use -gpu 0 argument to run on gpu
+python OpenNMT-py/translate.py --model $MODEL \
                     --src $SOURCE_FILE \
                     --beam_size 1 \
-                    --gpu 0 \
                     --max_length 10 \
                     --output $OUT \
                     --batch_size 256 \
 
-if [ $REFERENCE != "" ]
+if [ "$#" -ge 4 ]
 then
   python precision_recall_metrics.py -candidate $OUT -reference $REFERENCE
 fi

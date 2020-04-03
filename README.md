@@ -19,6 +19,9 @@ If you are using this code please cite:
 
 ## Quickstart
 
+Requirements: You need radare2 installed on your machine. To install it look at https://github.com/radareorg/radare2.
+
+
 Using our model to predict names for a stripped binary is straightforward.
 First of all clone this repository:
 ```shell script
