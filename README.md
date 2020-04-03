@@ -108,5 +108,8 @@ You can also predict names using our pretrained seq2seq model. To download it:
 ```shell script
 python downloader.py --seq2seq_pt
 ```
+## Acknowledgements
+
+In our code we use godown to download data from Google drive. We thank circulosmeos, the creator of godown.
 
 
