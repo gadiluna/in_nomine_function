@@ -2,7 +2,7 @@
 
 Models and code for the paper: 
 
-**In Nomine Function: Naming Functions in Stripped Binaries with Neural Networks**
+**In Nomine Function: Naming Functions in Stripped Binaries with Neural Networks**  [[PDF]](https://arxiv.org/pdf/1912.07946)
 
 **TL;DR**: We used a transformer model to predict function name in a stripped binary.
 
@@ -22,7 +22,7 @@ Using our model to predict names for a stripped binary is straightforward.
 Here we'll show how to predict function names for a given binary.
 In this example we will use the same gonnacry sample we used in our paper.
 
-*Requirements*: You need radare2 installed on your machine. To install it look at https://github.com/radareorg/radare2.
+*Requirements*: To predict names for your own binary you need radare2 installed on your machine. To install it take a look at https://github.com/radareorg/radare2.
 
 ---
 
@@ -49,7 +49,7 @@ This will download the pretrained transformer model described in the paper in th
 
 ---
 
-### Disassemble the executable to analise
+### Disassemble the program and dump the assembly code
 
 Then, you need to dump the assembly code for unnamed funtions in your stripped binary:
 ```shell script
