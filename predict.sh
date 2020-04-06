@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# In Nomine Functions Team
+# distributed under license: GPL 3 License http://www.gnu.org/licenses/
+
 SOURCE_FILE=$1 # File with preprocesed assembly code of functions
 OUT=$2         # File where to write name predictions
 MODEL=$3       # Path to the trained model

@@ -1,3 +1,6 @@
+# In Nomine Functions Team
+# distributed under license: GPL 3 License http://www.gnu.org/licenses/
+
 import argparse
 import numpy as np
 
