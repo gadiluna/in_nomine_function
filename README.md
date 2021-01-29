@@ -136,5 +136,6 @@ python OpenNMT-py/train.py --config model_configs/config_seq2seq.yaml
 ## Acknowledgements
 
 In our code we use godown to download data from Google drive. We thank circulosmeos, the creator of godown.
+Giuseppe Di Luna was supported by the AXA Fellowship. 
 
 
